@@ -35,11 +35,11 @@ end
 Your ruby job names are meant to match the class/job names used in mosquito
 ```crystal
 class MyNewJob < Mosquito::QueuedJob
-	# your job params here
+  # your job params here
 	
-	def perform
-		# your job start code here
-	end
+  def perform
+    # your job start code here
+  end
 end
 ```
 
