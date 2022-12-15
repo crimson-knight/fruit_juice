@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fruit_juice (0.1.0)
+    fruit_juice (0.5.0)
       json (>= 2.4.1)
       redis (>= 4.0.0)
 
