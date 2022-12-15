@@ -90,7 +90,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/crimson-knight/fruit_juice. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/fruit_juice/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/crimson-knight/fruit_juice. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the golden rule: "if you have nothing nice or constructive to say, don't say anything at all".
 
 Please open an issue and discuss and grand plans beyond bug fixes before taking on huge changes :)
 
@@ -98,8 +98,3 @@ Please open an issue and discuss and grand plans beyond bug fixes before taking 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-
-## Code of Conduct
-
-Everyone interacting in the FruitJuice project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/fruit_juice/blob/main/CODE_OF_CONDUCT.md).
