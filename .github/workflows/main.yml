@@ -16,6 +16,15 @@ jobs:
         ruby:
           - '3.1.2'
           - '2.7.7'
+    
+    services:
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
     - uses: actions/checkout@v3
@@ -29,3 +38,5 @@ jobs:
 
     - name: Run rspec
       run: bundle exec rspec
+      env:
+          REDIS_URL: redis://redis:6379/1
