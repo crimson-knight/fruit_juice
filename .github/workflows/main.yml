@@ -18,13 +18,15 @@ jobs:
           - '2.7.7'
     
     services:
-      notlocalredis:
+      redis:
         image: redis
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 2
+        ports:
+          - 6379:6379
 
     steps:
     - uses: actions/checkout@v3
@@ -39,5 +41,4 @@ jobs:
     - name: Run rspec
       run: bundle exec rspec
       env:
-          REDIS_URL: redis://notlocalredis:6379/1
-          REDIS_NO_FLUSH: true
+        REDIS_URL: redis://localhost:6379/1
