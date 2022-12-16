@@ -40,3 +40,4 @@ jobs:
       run: bundle exec rspec
       env:
           REDIS_URL: redis://redis:6379/1
+          REDIS_NO_FLUSH: true

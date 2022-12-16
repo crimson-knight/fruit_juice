@@ -3,10 +3,8 @@
 RSpec.describe FruitJuice::DelayedJob do
 
   after(:all) do
-    if ENV["REDIS_URL"].nil?
+    unless ENV["REDIS_NO_FLUSH"].nil?
       Redis.new(host: "localhost", port: "6379", db: 1).flushdb
-    else
-      Redis.new(url: ENV["REDIS_URL"])
     end
   end
 
