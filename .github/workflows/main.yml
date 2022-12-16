@@ -24,5 +24,8 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
-    - name: Run the default task
+    - name: Install the bundler
+      run: bundle
+
+    - name: Run rspec
       run: bundle exec rspec
