@@ -16,7 +16,6 @@ jobs:
         ruby:
           - '3.1.2'
           - '2.7.7'
-          - '2.6.10'
 
     steps:
     - uses: actions/checkout@v3
