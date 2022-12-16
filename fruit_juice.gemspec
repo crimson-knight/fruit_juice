@@ -28,6 +28,5 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "json", ">= 2.4.1"
   spec.add_dependency "redis", ">= 4.0.0"
 end

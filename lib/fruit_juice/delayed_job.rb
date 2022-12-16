@@ -2,8 +2,6 @@
 require_relative "string"
 require_relative "hash"
 
-require "json"
-
 module FruitJuice
   class DelayedJob
     using FruitJuiceString
@@ -20,7 +18,7 @@ module FruitJuice
     end
 
     def perform(**job_options)
-      @job_options = JSON.generate(job_options.deep_stringify_keys!)
+      @job_options = job_options.deep_stringify_keys!
       enqueue_job
     end
 
@@ -38,8 +36,11 @@ module FruitJuice
           "retry_count": 0,
 
           # Job specific params
-          "job_options": @job_options.to_json
+          "job_options": @job_options
         }
+
+        # Required to support both Redis v4.x & v5+ due to behavior changes
+        job_run_meta_data.transform_values!(&:to_s) if Redis::VERSION.to_i > 4
 
         @redis_adapter.hset(job_run_key, job_run_meta_data)
         @redis_adapter.lpush(@waiting_queue_key, job_id)
