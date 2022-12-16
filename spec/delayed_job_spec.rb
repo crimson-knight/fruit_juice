@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-require "ostruct"
-
 RSpec.describe FruitJuice::DelayedJob do
+
+  after(:all) do
+    Redis.new(host: "localhost", port: "6379", db: 1).flushdb
+  end
 
   context "initialization options" do
     it "creates a DelayedJob using the REDIS_URL env var" do
