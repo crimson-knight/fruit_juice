@@ -26,7 +26,7 @@ module FruitJuice
 
     protected
 
-      def enqueue_job(**options)
+      def enqueue_job
         enqueue_time = (Time.now.utc.to_f*1000).to_i
         job_id = "#{enqueue_time}:#{rand(1000)}"
         job_run_key = "mosquito:job_run:#{job_id}"
@@ -38,7 +38,7 @@ module FruitJuice
           "retry_count": 0,
 
           # Job specific params
-          "job_options": @job_options
+          "job_options": @job_options.to_json
         }
 
         @redis_adapter.hset(job_run_key, job_run_meta_data)
