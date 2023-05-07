@@ -15,12 +15,13 @@ jobs:
         environment:
           REDIS_URL: redis://localhost:6379
     executor: ruby/default
+    working_directory: ~/fruit_juice
     steps:
       - checkout
       - run:
           name: Create test result folder
           command: |
-            mkdir ~/contextify/test-results
+            mkdir ~/fruit_juice/test-results
             touch test-results/test.log
       - run:
           name: Which bundler?
@@ -46,12 +47,13 @@ jobs:
         environment:
           REDIS_URL: redis://localhost:6379
     executor: ruby/default
+    working_directory: ~/fruit_juice
     steps:
       - checkout
       - run:
           name: Create test result folder
           command: |
-            mkdir ~/contextify/test-results
+            mkdir ~/fruit_juice/test-results
             touch test-results/test.log
       - run:
           name: Bundle install
