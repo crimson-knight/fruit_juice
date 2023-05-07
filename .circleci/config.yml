@@ -8,21 +8,71 @@ orbs:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
+  ruby-3-2-0:
     docker:
-      - image: cimg/ruby:3.1.0
+      - image: cimg/ruby:3.2.0
+      - image: cimg/redis:6.2
+        environment:
+          REDIS_URL: redis://localhost:6379
     executor: ruby/default
     steps:
       - checkout
       - run:
+          name: Create test result folder
+          command: |
+            mkdir ~/contextify/test-results
+            touch test-results/test.log
+      - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
+      - run: 
+          name: Install appraisal
+          command: gem install appraisal
+      - run:
+          name: Install appraisal dependencies
+          command: appraisal install
+      - run:
+          name: Run specs
+          command: appraisal rspec
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
+
+  ruby-2-2-0:
+    docker:
+      - image: cimg/ruby:2.2.0
+      - image: cimg/redis:6.2
+        environment:
+          REDIS_URL: redis://localhost:6379
+    executor: ruby/default
+    steps:
+      - checkout
+      - run:
+          name: Create test result folder
+          command: |
+            mkdir ~/contextify/test-results
+            touch test-results/test.log
+      - run:
+          name: Bundle install
+          command: bundle Install
+      - run:
+          name: Run specs
+          command: bundle exec rspec \
+            --format documentation \
+            --format progress \
+            --out test-results/progress_output.txt \
+            --format RspecJunitFormatter \
+            --out test-results/rspec-test-results/rspec.xml
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: test-results
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  fruit_juice_specs: # This is the name of the workflow, feel free to change it to better match your workflow.
     jobs:
-      - build
+      - ruby-3-2-0
+      - ruby-2-2-0
