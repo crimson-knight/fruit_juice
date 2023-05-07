@@ -75,4 +75,4 @@ workflows:
   fruit_juice_specs: # This is the name of the workflow, feel free to change it to better match your workflow.
     jobs:
       - ruby-3-2-0
-      - ruby-2-2-0
+      - ruby-2-5-4
