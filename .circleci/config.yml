@@ -30,6 +30,9 @@ jobs:
           name: Install appraisal
           command: gem install appraisal
       - run:
+          name: Bundle install
+          command: bundle install
+      - run:
           name: Install appraisal dependencies
           command: appraisal install
       - run:
@@ -57,7 +60,7 @@ jobs:
             touch test-results/test.log
       - run:
           name: Bundle install
-          command: bundle Install
+          command: bundle install
       - run:
           name: Run specs
           command: bundle exec rspec \
