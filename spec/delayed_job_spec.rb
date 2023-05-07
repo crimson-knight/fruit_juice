@@ -55,5 +55,12 @@ RSpec.describe FruitJuice::DelayedJob do
       expect(delayed_job.waiting_queue_key).to eq("mosquito:waiting:fruit_juice::delayed_job")
     end
 
+    it "verifies the key being saved into redis is actually a json string" do
+      delayed_job = FruitJuice::DelayedJob.new()
+      job_run_key = delayed_job.perform(test_param: "test_value", "the first": "params")
+      redis_adapter = Redis.new(url: ENV["REDIS_URL"])
+      expect(redis_adapter.hget(job_run_key, "job_options")).to eq("{\"test_param\":\"test_value\", \"the first\":\"params\"}")
+    end
+
   end
 end

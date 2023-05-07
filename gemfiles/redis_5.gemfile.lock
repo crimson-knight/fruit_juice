@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     fruit_juice (0.6.0)
       redis (>= 4.0.0)
@@ -35,15 +35,14 @@ GEM
     thor (1.2.1)
 
 PLATFORMS
-  arm64-darwin-22
   x86_64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   appraisal (~> 2.0)
   byebug
   fruit_juice!
   rake (~> 13.0)
+  redis (>= 5.0.0)
   rspec (~> 3.0)
 
 BUNDLED WITH

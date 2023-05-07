@@ -36,12 +36,12 @@ module FruitJuice
           "retry_count": 0,
 
           # Job specific params
-          "job_options": @job_options
+          "job_options": @job_options.to_s.gsub("=>", ":")
         }
 
         # Required to support both Redis v4.x & v5+ due to behavior changes
         job_run_meta_data.transform_values!(&:to_s) if Redis::VERSION.to_i > 4
-
+        
         @redis_adapter.hset(job_run_key, job_run_meta_data)
         @redis_adapter.lpush(@waiting_queue_key, job_id)
         job_run_key
