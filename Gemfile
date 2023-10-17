@@ -13,6 +13,7 @@ end
 
 if RUBY_VERSION <= "2.4.0"
   gem "connection_pool", "2.2.5"
+end
 
 group :test do 
   gem "rspec", "~> 3.0"
