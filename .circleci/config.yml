@@ -28,6 +28,8 @@ jobs:
           command: |
             if [[ "<< parameters.ruby-version >>" < "2.6" ]]; then
               rm Gemfile.lock
+              rm gemfiles/redis_4.gemfile.lock
+              rm gemfiles/redis_5.gemfile.lock
             fi
       - run:
           name: Bundle install

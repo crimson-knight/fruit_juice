@@ -29,5 +29,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "redis", ">= 4.0.0"
-  spec.add_development_dependency "appraisal", "~> 2.0"
+
+  if RUBY_VERSION >= "2.3.0"
+    spec.add_development_dependency "appraisal", "~> 2.5"
+  else
+    spec.add_development_dependency "appraisal", "2.2.0"
+  end
 end
