@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require_relative "string"
 require_relative "hash"
+require "json"
 
 module FruitJuice
   class DelayedJob
@@ -36,7 +37,7 @@ module FruitJuice
           "retry_count": 0,
 
           # Job specific params
-          "job_options": @job_options.to_s.gsub("=>", ":")
+          "job_options": @job_options.to_json
         }
 
         # Required to support both Redis v4.x & v5+ due to behavior changes

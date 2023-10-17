@@ -31,6 +31,7 @@ GEM
     thor (1.2.1)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-darwin-21
 
 DEPENDENCIES

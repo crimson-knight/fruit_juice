@@ -59,7 +59,7 @@ RSpec.describe FruitJuice::DelayedJob do
       delayed_job = FruitJuice::DelayedJob.new()
       job_run_key = delayed_job.perform(test_param: "test_value", "the first": "params")
       redis_adapter = Redis.new(url: ENV["REDIS_URL"])
-      expect(redis_adapter.hget(job_run_key, "job_options")).to eq("{\"test_param\":\"test_value\", \"the first\":\"params\"}")
+      expect(redis_adapter.hget(job_run_key, "job_options")).to eq("{\"test_param\":\"test_value\",\"the first\":\"params\"}")
     end
 
   end

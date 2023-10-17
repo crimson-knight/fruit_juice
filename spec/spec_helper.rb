@@ -3,6 +3,13 @@
 require "fruit_juice"
 require "byebug"
 
+begin
+  require 'redis'
+rescue LoadError
+  puts "redis is not available for this ruby version. Skipping tests for version #{RUBY_VERSION}"
+  exit(0)
+end
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
