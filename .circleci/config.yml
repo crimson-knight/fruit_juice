@@ -6,10 +6,10 @@ executors:
       version:
         type: string
     docker:
-      - image: cimg/ruby:<< parameters.version >>
-      - image: cimg/redis:6.2
+      - image: ruby:<< parameters.version >>
         environment:
-          REDIS_URL: redis://localhost:6379
+          REDIS_URL: redis://redis:6379
+      - image: cimg/redis:6.2
     working_directory: ~/fruit_juice
 
 jobs:
@@ -46,4 +46,4 @@ workflows:
       - test:
           matrix:
             parameters:
-              ruby-version: ["2.2.2", "2.3.0", "2.4.0", "2.5.4", "3.2.0", "latest"]
+              ruby-version: ["2.2.3", "2.5.0", "2.7.4", "3.2.2", "3.3.0-preview1"]
