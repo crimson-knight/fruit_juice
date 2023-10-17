@@ -11,6 +11,9 @@ if RUBY_VERSION >= "2.4.0"
   gem "byebug", "~> 11.0"
 end
 
+if RUBY_VERSION <= "2.4.0"
+  gem "connection_pool", "2.2.5"
+
 group :test do 
   gem "rspec", "~> 3.0"
 end
