@@ -35,9 +35,6 @@ jobs:
           name: Bundle install
           command: bundle install
       - run:
-          name: Install appraisal
-          command: bundle exec gem install appraisal
-      - run:
           name: Install appraisal dependencies
           command: bundle exec appraisal install
       - run:
