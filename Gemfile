@@ -7,10 +7,6 @@ gemspec
 
 gem "rake", "~> 13.0"
 
-if RUBY_VERSION >= "2.4.0"
-  gem "byebug", "~> 11.0"
-end
-
 if RUBY_VERSION <= "2.4.0"
   gem "connection_pool", "2.2.5"
 end

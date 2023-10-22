@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "fruit_juice"
-require "byebug"
 
 begin
   require 'redis'
