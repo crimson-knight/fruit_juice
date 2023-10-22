@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
     spec.add_dependency "redis", ">= 4.3.0"
   else
     spec.add_dependency "redis", "4.2.0"
+    spec.add_dependency "thor", "1.2.2"
   end
 
   if RUBY_VERSION >= "2.3.0"

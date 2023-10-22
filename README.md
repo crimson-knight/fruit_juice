@@ -5,7 +5,7 @@ FruitJuice is a job enqueuing adapter for the [mosquito background job processor
 
 ## Requirements
 
-Ruby 2.7+
+Ruby 2.2.3+
 Mosquito 1.0.0.rc1+
 Crystal 1.0.0+
 Redis 4+
