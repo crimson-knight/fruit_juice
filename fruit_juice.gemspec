@@ -28,7 +28,11 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "redis", ">= 4.0.0"
+  if RUBY_VERSION >= "2.3.0"
+    spec.add_dependency "redis", ">= 4.3.0"
+  else
+    spec.add_dependency "redis", "4.2.0"
+  end
 
   if RUBY_VERSION >= "2.3.0"
     spec.add_development_dependency "appraisal", "~> 2.5"
