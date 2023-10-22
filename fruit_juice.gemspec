@@ -29,9 +29,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   if RUBY_VERSION >= "2.3.0"
-    spec.add_dependency "redis", ">= 4.3.0"
+    spec.add_dependency "redis", ">= 4.2.0"
   else
-    spec.add_dependency "redis", "4.2.0"
+    spec.add_dependency "redis", "4.1.0"
     spec.add_dependency "thor", "1.2.2"
   end
 
