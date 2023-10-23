@@ -76,7 +76,6 @@ delayed_job = MyNewRubyJob.new(job_type: "MyNewJob")
 delayed_job.perform(this_will: "become a job option", "job option": "and be stored", "as": "json to parse in Mosquito")
 ```
 
-
 That's it! Triggering jobs from Ruby/Rails is pretty easy, but this makes it a nice pattern that's easy to follow.
   
 
