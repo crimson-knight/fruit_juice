@@ -3,7 +3,5 @@ appraise "redis-4" do
 end
 
 appraise "redis-5" do
-  if RUBY_VERSION >= "2.5.0"
-    gem "redis", ">= 5.0.0"
-  end
+  gem "redis", ">= 5.0.0"
 end
